@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Mahasiswa</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="styles.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="resource/logo.png"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-    table {
+        .gambar-mahasiswa {
+            border-radius: 50%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            /* margin: 20px; */
+        }
+        table {
+            width: 97%;
             border-collapse: collapse;
-            width: 100%;
+            /* background-color:red; */
+            margin: 20px;
+           
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
         }
 
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: left;
         }
 
         th {
             background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .gambar-mahasiswa {
-            border-radius: 50%;
         }
     </style>
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 <section class="hero__section">
@@ -52,7 +62,7 @@
         </nav>
       </header>
       <div class="hero__section_container">
-        <img style="margin: 0;"
+        <img
           class="hero__section_logo"
           src="resource/sat2.png"
           alt="Sat21nger Logo"
@@ -62,6 +72,7 @@
         </h1>
       </div>
     </section>
+
 <?php
 include 'conexion.php';
 
@@ -94,5 +105,8 @@ $result = $link->query($query);
     </tbody>
 </table>
 
+<script>
+      feather.replace();
+    </script>
 </body>
 </html>

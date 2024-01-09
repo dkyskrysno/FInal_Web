@@ -12,7 +12,11 @@
     <meta charset="UTF-8">
     <title>Halaman Login</title>
     <link rel="stylesheet" href="css/estilos.css">
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="resource/logo.png"
+    />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
@@ -21,7 +25,7 @@
     <div class="container-all">
 
         <div class="ctn-form">
-            <img src="resource/logo.png" alt="" class="logo">
+            <img src="resource/logo.png" alt="" class="logo"  style="widht: 50px; height: 50px;">
             <h1 class="title">Login</h1>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

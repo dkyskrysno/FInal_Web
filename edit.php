@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+?>
+
 <!-- update.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +17,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Mahasiswa</title>
     <link rel="stylesheet" href="style.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="resource/logo.png"
+    />
+    <style>
+    form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #preview {
+            max-width: 100px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Fungsi JavaScript untuk menampilkan pratinjau foto yang dipilih
+        function previewPhoto() {
+            var input = document.getElementById('foto');
+            var preview = document.getElementById('preview');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </head>
 <body>
+
+<nav>
+    <!-- <a href="#">Home</a> -->
+    <a href="dashboard.php">Dashboard</a>
+    <a href="tambah.php">Tambah Mahasiswa</a>
+</nav><br><br>
 
 <?php
 include 'conexion.php';
@@ -19,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jurusan = $_POST['jurusan'];
     $fakultas = $_POST['fakultas'];
     $alamat = $_POST['alamat'];
+    $mahasiswa['foto'] = $foto_path;
 
     // Periksa apakah file foto baru diupload
     if (!empty($_FILES['foto']['name'])) {
@@ -73,11 +156,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     <input type="text" id="alamat" name="alamat" value="<?php echo $mahasiswa['alamat']; ?>" required>
 
     <label for="foto">Foto</label>
-    <input type="file" name="foto" id="foto">
+    <input type="file" name="foto" id="foto" onchange="previewPhoto()">
+    <?php
+    // Tampilkan foto yang diperbarui segera setelah diunggah
+    if (!empty($mahasiswa['foto'])) {
+        echo '<img id="preview" src="' . $mahasiswa['foto'] . '" alt="Foto Diperbarui" style="max-width: 100px;"><br>';
+    } else {
+        // Tampilkan tag gambar kosong untuk pratinjau
+        echo '<img id="preview" alt="Pratinjau" style="max-width: 200px;"><br>';
+    }
+    ?>
     <input type="hidden" name="existing_foto" value="<?php echo $mahasiswa['foto']; ?>">
+
 
     <button type="submit">Update Mahasiswa</button>
 </form>
+
+<script>
+    <?php
+    // Periksa apakah formulir telah dikirim dan pembaruan berhasil
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+        echo 'alert("Data Mahasiswa berhasil diperbarui!");';
+    }
+    ?>
+</script>
 
 </body>
 </html>

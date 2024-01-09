@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +16,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Mahasiswa</title>
     <link rel="stylesheet" href="style.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="resource/logo.png"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Gaya untuk tombol tambah */
@@ -74,12 +90,23 @@
         .gambar-mahasiswa {
             border-radius: 50%;
         }
+        .disclamer {
+            width: 90%;
+            text-align: center;
+            margin: auto;
+            padding: 20px 0;
+            font-size: 12px;
+            color: gray;
+            border-top: 1px solid gray;
+            bottom: 0px;
+        }
     </style>
 </head>
 <body>
 <nav>
     <a href="dashboard.php">Dashboard</a>
     <a href="tambah.php">Tambah Mahasiswa</a>
+    <a href="edit_user.php">Edit</a>
     <a href="cerrar-sesion.php" class="navbar-right close-sesion">Log Out</a>
 </nav><br><br>
 
@@ -121,5 +148,10 @@ $result = $link->query($query);
     </tbody>
 </table>
 
+<footer>
+    <p class="disclamer">
+        Firman Reski Ramadhan - Dikcy Sukkrysno - Yusril Mahendra
+      </p>
+</footer>
 </body>
 </html>
