@@ -106,7 +106,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <nav>
     <a href="dashboard.php">Dashboard</a>
     <a href="tambah.php">Tambah Mahasiswa</a>
-    <a href="edit_user.php">Edit</a>
     <a href="cerrar-sesion.php" class="navbar-right close-sesion">Log Out</a>
 </nav><br><br>
 

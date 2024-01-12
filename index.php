@@ -37,6 +37,8 @@
             <a href="#footer" class="link">Contact</a>
             <a href="read.php" class="link">Data</a>
             <a href="team/team.html" class="link" target="_blank">Teams</a>
+            <a href="login.php" class="link" target="_blank">Login</a>
+            <a href="register.php" class="link" target="_blank">Sign Up</a>
             <a href="#" class="user__icon">
               <i class="fa-solid fa-user"></i>
             </a>

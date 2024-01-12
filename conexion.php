@@ -8,6 +8,6 @@
     $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
     if($link === false){
-        die("ERROR EN LA CONEXION" . mysqli_connect_error());
+        die("KONEKSI ERROR" . mysqli_connect_error());
     }
 ?>

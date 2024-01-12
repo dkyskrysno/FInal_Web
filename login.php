@@ -41,7 +41,7 @@
 
             </form>
 
-            <span class="text-footer">Belum Punya Akun ?
+            <span class="text-footer">Don't have an account?
                 <a href="register.php">Sign Up</a>
             </span>
         </div>
@@ -49,7 +49,7 @@
         <div class="ctn-text">
             <div class="capa"></div>
             <h1 class="title-description">SAT21NGER</h1>
-            <p class="text-description">Satzinger adalah merupakan angkatan pada jurusan Sistem Informasi yang merupakan angkatan 2021</p>
+            <p class="text-description">Satzinger is a member of the Information Systems department, the class of 2021, located at the Alauddin State Islamic University, Makassar, Faculty of Science and Technology.</p>
         </div>
 
     </div>

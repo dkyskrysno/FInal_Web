@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Mahasiswa</title>
+    <title>Data Sat21nger</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="styles.css">
     <link
@@ -55,6 +55,8 @@
             <a href="index.php" class="link">Contact</a>
             <a href="read.php" class="link">Data</a>
             <a href="team/team.html" class="link" target="_blank">Teams</a>
+            <a href="login.php" class="link" target="_blank">Login</a>
+            <a href="register.php" class="link" target="_blank">Sign Up</a>
             <a href="#" class="user__icon">
               <i class="fa-solid fa-user"></i>
             </a>
